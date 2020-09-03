@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import { NativeSelect, FormControl } from '@material-ui/core';
 import shortid from 'shortid';
 
@@ -6,7 +6,11 @@ import { fetchCountries } from '../../api';
 
 import styles from './CountryPicker.module.css';
 
-const Countries = ({ handleCountryChange }: any) => {
+interface Props {
+  handleCountryChange: (e: any) => void;
+}
+
+const CountryPicker: React.FC<Props> = ({ handleCountryChange }) => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -34,4 +38,4 @@ const Countries = ({ handleCountryChange }: any) => {
   );
 };
 
-export default Countries;
+export default CountryPicker;

@@ -5,8 +5,33 @@ import { fetchDailyData } from '../../api';
 
 import styles from './Chart.module.css';
 
-const Chart = ({ data: { confirmed, recovered, deaths }, country }: any) => {
+interface DailyDataItemType {
+  confirmed: number;
+  date: string;
+  deaths: number;
+}
+
+interface DataItemType {
+  value: number;
+  details: string;
+}
+
+interface Props {
+  data: {
+    confirmed: DataItemType;
+    recovered: DataItemType;
+    deaths: DataItemType;
+    lastUpdate: string;
+  };
+  country: string;
+}
+
+const Chart: React.FC<Props> = ({
+  data: { confirmed, recovered, deaths },
+  country,
+}) => {
   const [dailyData, setDailyData] = useState([]);
+  console.log(dailyData);
 
   useEffect(() => {
     const fetchMyAPI = async () => {
@@ -47,13 +72,13 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }: any) => {
         labels: dailyData.map(({ date }) => date),
         datasets: [
           {
-            data: dailyData.map((data: any) => data.confirmed),
+            data: dailyData.map((data: DailyDataItemType) => data.confirmed),
             label: 'Infected',
             borderColor: '#3333ff',
             fill: true,
           },
           {
-            data: dailyData.map((data: any) => data.deaths),
+            data: dailyData.map((data: DailyDataItemType) => data.deaths),
             label: 'Deaths',
             borderColor: 'red',
             backgroundColor: 'rgba(255, 0, 0, 0.5)',
