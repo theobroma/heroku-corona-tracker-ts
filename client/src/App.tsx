@@ -1,19 +1,11 @@
 import React from 'react';
-import './assets/styles/index.scss';
-import './App.css';
-
-import {
-  Cards as JsCards,
-  CountryPicker,
-  Chart as JsChart,
-} from './components';
+import { Cards, CountryPicker, Chart } from './components';
 import { fetchData } from './api';
-import styles from './App.module.css';
 import image from './assets/images/image.png';
-/* tslint:disable */
-const Cards: any = JsCards; // todo delete me after refactoring to TS
-const Chart: any = JsChart; // todo delete me after refactoring to TS
-/* tslint:enable */
+// Styles
+import './App.css';
+import './assets/styles/index.scss';
+import styles from './App.module.css';
 
 class App extends React.Component {
   state = {

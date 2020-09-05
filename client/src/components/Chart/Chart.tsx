@@ -1,28 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Line, Bar } from 'react-chartjs-2';
-
 import { fetchDailyData } from '../../api';
-
+import { DailyDataItemType } from '../../types';
 import styles from './Chart.module.css';
 
-interface DailyDataItemType {
-  confirmed: number;
-  date: string;
-  deaths: number;
-}
-
-interface DataItemType {
-  value: number;
-  details: string;
-}
-
 interface Props {
-  data: {
-    confirmed: DataItemType;
-    recovered: DataItemType;
-    deaths: DataItemType;
-    lastUpdate: string;
-  };
+  data: any;
   country: string;
 }
 

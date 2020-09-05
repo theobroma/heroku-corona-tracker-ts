@@ -5,18 +5,8 @@ import cx from 'classnames';
 
 import styles from './Cards.module.css';
 
-interface DataItemType {
-  value: number;
-  details: string;
-}
-
 interface Props {
-  data: {
-    confirmed: DataItemType;
-    recovered: DataItemType;
-    deaths: DataItemType;
-    lastUpdate: string;
-  };
+  data: any;
 }
 
 const Info: React.FC<Props> = ({
