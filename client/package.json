@@ -2,6 +2,43 @@
   "name": "corona-tracker-ts",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
+    "lint": "eslint --fix src/**/*.{js,jsx,ts,tsx}"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{md,yml,yml,json}": [
+      "prettier --write"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@testing-library/jest-dom": "^5.11.4",
@@ -25,33 +62,12 @@
     "shortid": "^2.2.15",
     "typescript": "^3.9.7"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
-    "lint": "eslint --fix src/**/*.{js,jsx,ts,tsx}"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
     "eslint": "^6.6.0",
     "eslint-config-airbnb-typescript-prettier": "^3.1.0",
     "eslint-plugin-jest": "^23.20.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.3.0",
     "prettier": "^2.1.1"
   }
 }
