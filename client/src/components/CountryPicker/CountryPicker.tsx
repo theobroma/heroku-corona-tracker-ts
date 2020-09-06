@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NativeSelect, FormControl } from '@material-ui/core';
 import shortid from 'shortid';
 
@@ -7,7 +7,7 @@ import { fetchCountries } from '../../api';
 import styles from './CountryPicker.module.css';
 
 interface Props {
-  handleCountryChange: (e: any) => void;
+  handleCountryChange: (country: string) => void;
 }
 
 const CountryPicker: React.FC<Props> = ({ handleCountryChange }) => {

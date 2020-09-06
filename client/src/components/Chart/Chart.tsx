@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Line, Bar } from 'react-chartjs-2';
 import { fetchDailyData } from '../../api';
-import { DailyDataItemType } from '../../types';
+import { DailyDataItemType, DataType } from '../../types';
 import styles from './Chart.module.css';
 
 interface Props {
-  data: any;
+  data: DataType;
   country: string;
 }
 
-const Chart: React.FC<Props> = ({
-  data: { confirmed, recovered, deaths },
-  country,
-}) => {
+const Chart: React.FC<Props> = ({ data, country }) => {
   const [dailyData, setDailyData] = useState([]);
+  const { confirmed, recovered, deaths } = data;
+  console.log(data);
 
   useEffect(() => {
     const fetchMyAPI = async () => {
@@ -54,13 +53,17 @@ const Chart: React.FC<Props> = ({
         labels: dailyData.map(({ date }) => date),
         datasets: [
           {
-            data: dailyData.map((data: DailyDataItemType) => data.confirmed),
+            data: dailyData.map(
+              (dailyDataItem: DailyDataItemType) => dailyDataItem.confirmed,
+            ),
             label: 'Infected',
             borderColor: '#3333ff',
             fill: true,
           },
           {
-            data: dailyData.map((data: DailyDataItemType) => data.deaths),
+            data: dailyData.map(
+              (dailyDataItem: DailyDataItemType) => dailyDataItem.deaths,
+            ),
             label: 'Deaths',
             borderColor: 'red',
             backgroundColor: 'rgba(255, 0, 0, 0.5)',

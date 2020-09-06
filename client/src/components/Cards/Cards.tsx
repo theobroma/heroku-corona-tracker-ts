@@ -4,9 +4,10 @@ import CountUp from 'react-countup';
 import cx from 'classnames';
 
 import styles from './Cards.module.css';
+import { DataType } from '../../types';
 
 interface Props {
-  data: any;
+  data: DataType;
 }
 
 const Info: React.FC<Props> = ({

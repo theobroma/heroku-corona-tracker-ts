@@ -6,10 +6,11 @@ import image from './assets/images/image.png';
 import './App.css';
 import './assets/styles/index.scss';
 import styles from './App.module.css';
+import { DataType } from './types';
 
 class App extends React.Component {
   state = {
-    data: {},
+    data: {} as DataType,
     country: '',
   };
 
