@@ -14,7 +14,6 @@ const Chart: React.FC<Props> = ({
   country,
 }) => {
   const [dailyData, setDailyData] = useState([]);
-  console.log(dailyData);
 
   useEffect(() => {
     const fetchMyAPI = async () => {
