@@ -3,8 +3,7 @@ import { Cards, CountryPicker, Chart } from './components';
 import { fetchData } from './api';
 import image from './assets/images/image.png';
 // Styles
-import './App.css';
-import './assets/styles/index.scss';
+// import './assets/styles/index.scss';
 import styles from './App.module.css';
 import { DataType } from './types';
 
