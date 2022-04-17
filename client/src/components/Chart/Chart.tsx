@@ -1,8 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import {
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip,
+} from 'chart.js';
+import React, { useEffect, useState } from 'react';
 import { Line, Bar } from 'react-chartjs-2';
+// import { Line, Bar } from 'react-chartjs-2';
 import { fetchDailyData } from '../../api';
 import { DailyDataItemType, DataType } from '../../types';
 import styles from './Chart.module.css';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+);
 
 interface Props {
   data: DataType;
@@ -77,7 +98,7 @@ const Chart: React.FC<Props> = ({ data, country }) => {
   return (
     <div className={styles.container}>
       {/* {country ? barChart : lineChart} */}
-      {/* {lineChart} */}
+      {lineChart}
     </div>
   );
 };
