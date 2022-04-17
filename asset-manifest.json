@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/heroku-corona-tracker-ts/static/css/main.0ff3d8cf.css",
+    "main.js": "/heroku-corona-tracker-ts/static/js/main.040a9053.js",
+    "static/media/image.png": "/heroku-corona-tracker-ts/static/media/image.9e5d4fc7428c24bbc17d.png",
+    "index.html": "/heroku-corona-tracker-ts/index.html",
+    "main.0ff3d8cf.css.map": "/heroku-corona-tracker-ts/static/css/main.0ff3d8cf.css.map",
+    "main.040a9053.js.map": "/heroku-corona-tracker-ts/static/js/main.040a9053.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0ff3d8cf.css",
+    "static/js/main.040a9053.js"
+  ]
+}
