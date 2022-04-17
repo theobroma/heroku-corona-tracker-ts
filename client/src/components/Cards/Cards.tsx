@@ -17,7 +17,7 @@ const Info: React.FC<Props> = ({
 
   const Cards = (
     <div className={styles.container}>
-      <Grid container spacing={3} justify="center">
+      <Grid container spacing={3} justifyContent="center">
         {/* confirmed */}
         {confirmed.value && (
           <Grid

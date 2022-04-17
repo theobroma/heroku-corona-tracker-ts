@@ -12,7 +12,7 @@ interface Props {
 const Chart: React.FC<Props> = ({ data, country }) => {
   const [dailyData, setDailyData] = useState([]);
   const { confirmed, recovered, deaths } = data;
-  console.log(data);
+  // console.log(data);
 
   useEffect(() => {
     const fetchMyAPI = async () => {
@@ -24,28 +24,28 @@ const Chart: React.FC<Props> = ({ data, country }) => {
     fetchMyAPI();
   }, []);
 
-  const barChart = confirmed ? (
-    <Bar
-      data={{
-        labels: ['Infected', 'Recovered', 'Deaths'],
-        datasets: [
-          {
-            label: 'People',
-            backgroundColor: [
-              'rgba(0, 0, 255, 0.5)',
-              'rgba(0, 255, 0, 0.5)',
-              'rgba(255, 0, 0, 0.5)',
-            ],
-            data: [confirmed.value, recovered.value, deaths.value],
-          },
-        ],
-      }}
-      options={{
-        legend: { display: false },
-        title: { display: true, text: `Current state in ${country}` },
-      }}
-    />
-  ) : null;
+  // const barChart = confirmed ? (
+  //   <Bar
+  //     data={{
+  //       labels: ['Infected', 'Recovered', 'Deaths'],
+  //       datasets: [
+  //         {
+  //           label: 'People',
+  //           backgroundColor: [
+  //             'rgba(0, 0, 255, 0.5)',
+  //             'rgba(0, 255, 0, 0.5)',
+  //             'rgba(255, 0, 0, 0.5)',
+  //           ],
+  //           data: [confirmed.value, recovered.value, deaths.value],
+  //         },
+  //       ],
+  //     }}
+  //     options={{
+  //       legend: { display: false },
+  //       title: { display: true, text: `Current state in ${country}` },
+  //     }}
+  //   />
+  // ) : null;
 
   const lineChart = dailyData[0] ? (
     <Line
@@ -75,7 +75,10 @@ const Chart: React.FC<Props> = ({ data, country }) => {
   ) : null;
 
   return (
-    <div className={styles.container}>{country ? barChart : lineChart}</div>
+    <div className={styles.container}>
+      {/* {country ? barChart : lineChart} */}
+      {/* {lineChart} */}
+    </div>
   );
 };
 
