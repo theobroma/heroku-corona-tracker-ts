@@ -4,13 +4,13 @@ import {
   Legend,
   LinearScale,
   LineElement,
+  BarElement,
   PointElement,
   Title,
   Tooltip,
 } from 'chart.js';
 import React, { useEffect, useState } from 'react';
 import { Line, Bar } from 'react-chartjs-2';
-// import { Line, Bar } from 'react-chartjs-2';
 import { fetchDailyData } from '../../api';
 import { DailyDataItemType, DataType } from '../../types';
 import styles from './Chart.module.css';
@@ -18,6 +18,7 @@ import styles from './Chart.module.css';
 ChartJS.register(
   CategoryScale,
   LinearScale,
+  BarElement,
   PointElement,
   LineElement,
   Title,
@@ -45,28 +46,30 @@ const Chart: React.FC<Props> = ({ data, country }) => {
     fetchMyAPI();
   }, []);
 
-  // const barChart = confirmed ? (
-  //   <Bar
-  //     data={{
-  //       labels: ['Infected', 'Recovered', 'Deaths'],
-  //       datasets: [
-  //         {
-  //           label: 'People',
-  //           backgroundColor: [
-  //             'rgba(0, 0, 255, 0.5)',
-  //             'rgba(0, 255, 0, 0.5)',
-  //             'rgba(255, 0, 0, 0.5)',
-  //           ],
-  //           data: [confirmed.value, recovered.value, deaths.value],
-  //         },
-  //       ],
-  //     }}
-  //     options={{
-  //       legend: { display: false },
-  //       title: { display: true, text: `Current state in ${country}` },
-  //     }}
-  //   />
-  // ) : null;
+  const barChart = confirmed ? (
+    <Bar
+      data={{
+        labels: ['Infected', 'Recovered', 'Deaths'],
+        datasets: [
+          {
+            label: 'People',
+            backgroundColor: [
+              'rgba(0, 0, 255, 0.5)',
+              'rgba(0, 255, 0, 0.5)',
+              'rgba(255, 0, 0, 0.5)',
+            ],
+            data: [confirmed.value, recovered.value, deaths.value],
+          },
+        ],
+      }}
+      options={{
+        plugins: {
+          legend: { display: false },
+          title: { display: true, text: `Current state in ${country}` },
+        },
+      }}
+    />
+  ) : null;
 
   const lineChart = dailyData[0] ? (
     <Line
@@ -96,10 +99,7 @@ const Chart: React.FC<Props> = ({ data, country }) => {
   ) : null;
 
   return (
-    <div className={styles.container}>
-      {/* {country ? barChart : lineChart} */}
-      {lineChart}
-    </div>
+    <div className={styles.container}>{country ? barChart : lineChart}</div>
   );
 };
 
