@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NativeSelect, FormControl } from '@material-ui/core';
-import shortid from 'shortid';
+import { nanoid } from 'nanoid';
 
 import { fetchCountries } from '../../api';
 
@@ -29,7 +29,7 @@ const CountryPicker: React.FC<Props> = ({ handleCountryChange }) => {
       >
         <option value="">Global</option>
         {countries.map((country) => (
-          <option key={shortid.generate()} value={country}>
+          <option key={nanoid()} value={country}>
             {country}
           </option>
         ))}
