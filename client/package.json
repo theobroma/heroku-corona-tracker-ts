@@ -1,4 +1,5 @@
 {
+    "homepage": "https://theobroma.github.io/heroku-corona-tracker-ts/",
     "name": "heroku-corona-tracker-ts",
     "version": "0.1.0",
     "private": true,
