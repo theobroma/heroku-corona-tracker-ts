@@ -1,11 +1,13 @@
 import React from 'react';
-import { Cards, CountryPicker, Chart } from './components';
-import { fetchData } from './api';
+
 import image from './assets/images/image.png';
+import { fetchData } from './api';
+import { Cards, Chart, CountryPicker } from './components';
+import type { DataType } from './types';
+
 // Styles
 // import './assets/styles/index.scss';
 import styles from './App.module.css';
-import { DataType } from './types';
 
 class App extends React.Component {
   state = {

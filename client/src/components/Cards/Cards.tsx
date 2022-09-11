@@ -1,10 +1,12 @@
 import React from 'react';
-import { Card, CardContent, Typography, Grid } from '@material-ui/core';
-import CountUp from 'react-countup';
 import cx from 'classnames';
+import CountUp from 'react-countup';
+
+import { Card, CardContent, Grid, Typography } from '@material-ui/core';
+
+import type { DataType } from '../../types';
 
 import styles from './Cards.module.css';
-import { DataType } from '../../types';
 
 interface Props {
   data: DataType;
@@ -19,7 +21,7 @@ const Info: React.FC<Props> = ({
     <div className={styles.container}>
       <Grid container spacing={3} justifyContent="center">
         {/* confirmed */}
-        {confirmed.value && (
+        {!!confirmed.value && (
           <Grid
             item
             xs={12}
@@ -49,7 +51,7 @@ const Info: React.FC<Props> = ({
           </Grid>
         )}
         {/* recovered */}
-        {recovered.value && (
+        {!!recovered.value && (
           <Grid
             item
             xs={12}
@@ -78,7 +80,7 @@ const Info: React.FC<Props> = ({
             </CardContent>
           </Grid>
         )}
-        {deaths.value && (
+        {!!deaths.value && (
           <Grid
             item
             xs={12}

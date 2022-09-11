@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { CountryType, DailyDataFetchType } from '../types';
+
+import type { CountryType, DailyDataFetchType } from '../types';
 
 const url = 'https://covid19.mathdro.id/api';
 

@@ -1,18 +1,20 @@
+import React, { useEffect, useState } from 'react';
 import {
+  BarElement,
   CategoryScale,
   Chart as ChartJS,
   Legend,
   LinearScale,
   LineElement,
-  BarElement,
   PointElement,
   Title,
   Tooltip,
 } from 'chart.js';
-import React, { useEffect, useState } from 'react';
-import { Line, Bar } from 'react-chartjs-2';
+import { Bar, Line } from 'react-chartjs-2';
+
 import { fetchDailyData } from '../../api';
-import { DailyDataItemType, DataType } from '../../types';
+import type { DailyDataItemType, DataType } from '../../types';
+
 import styles from './Chart.module.css';
 
 ChartJS.register(
