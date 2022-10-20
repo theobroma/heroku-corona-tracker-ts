@@ -25,7 +25,7 @@ const Info: React.FC<Props> = ({
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
             component={Card}
             className={cx(styles.card, styles.infected)}
           >
@@ -55,7 +55,7 @@ const Info: React.FC<Props> = ({
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
             component={Card}
             className={cx(styles.card, styles.recovered)}
           >
@@ -84,7 +84,7 @@ const Info: React.FC<Props> = ({
           <Grid
             item
             xs={12}
-            md={3}
+            md={4}
             component={Card}
             className={cx(styles.card, styles.deaths)}
           >
